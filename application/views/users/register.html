@@ -9,36 +9,28 @@
                 <label>
                     Imię:
                     <input type="text" name="first" />
-                    {if isset($first_error)}
-                        {echo $first_error}
-                    {/if}
+                    {echo Shared\Markup::errors($errors, "first")}
                 </label>
             </li>
             <li>
                 <label>
                     Nazwisko:
                     <input type="text" name="last" />
-                    {if isset($last_error)}
-                        {echo $last_error}
-                    {/if}
+                    {echo Shared\Markup::errors($errors, "last")}
                 </label>
-            </li>    
+            </li>
             <li>
                 <label>
                     E-mail:
                     <input type="text" name="email" />
-                    {if isset($email_error)}
-                        {echo $email_error}
-                    {/if}
+                    {echo Shared\Markup::errors($errors, "email")}
                 </label>
             </li>
             <li>
                 <label>
                     Hasło:
                     <input type="password" name="password" />
-                    {if isset($password_error)}
-                        {echo $password_error}
-                    {/if}
+                    {echo Shared\Markup::errors($errors, "password")}
                 </label>
             </li>
             <li>
