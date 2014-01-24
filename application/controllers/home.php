@@ -1,17 +1,36 @@
 <?php
 
-use Framework\Controller as Controller;
+use Shared\Controller as Controller;
+use Framework\ArrayMethods as ArrayMethods;
 
 class Home extends Controller
 {
     public function index()
     {
-	//parent::_defaultLayout = 'layouts/boot';
-	//$this->_defaultLayout = 'layouts/boot';
-	//$this->_layoutView = 'layouts/boot';
+        $user = $this->getUser();
+        $view = $this->getActionView();
 
-	//$view = $this->getActionView();
-	//$view->setLayoutView('layouts/boot');
-        // nic ciekawego...
+        if ($user)
+        {
+            $friends = Friend::all(array(
+                "user = ?" => $user->id,
+                "live = ?" => true,
+                "deleted = ?" => false
+            ), array("friend"));
+
+            $ids = array('1');
+            foreach($friends as $friend)
+            {
+                $ids[] = $friend->friend;
+            }
+
+            $messages = Message::all(array(
+                "user in ?" => $ids,
+                "live = ?" => true,
+                "deleted = ?" => false
+            ), array("*"), "created", "asc");
+
+            $view->set("messages", $messages);
+        }
     }
 }

@@ -9,6 +9,7 @@ class Users extends Controller
     public function register()
     {
         $view = $this->getActionView();
+        $view->set("errors", array());
 
         if (RequestMethods::post("register"))
         {
@@ -164,5 +165,60 @@ class Users extends Controller
 
         header("Location: /mvc2/public/users/login.html");
         exit();
+    }
+
+    /**
+    * @before _secure
+    */
+    public function friend($id)
+    {
+        $user = $this->getUser();
+
+        $friend = new Friend(array(
+            "user" => $user->id,
+            "friend" => $id
+        ));
+
+        $friend->save();
+
+        header("Location: /search.html");
+        exit();
+    }
+
+    /**
+    * @before _secure
+    */
+    public function unfriend($id)
+    {
+        $user = $this->getUser();
+
+        $friend = Friend::first(array(
+            "user" => $user->id,
+            "friend" => $id
+        ));
+
+        if ($friend)
+        {
+            $friend = new Friend(array(
+                "id" => $friend->id
+            ));
+            $friend->delete();
+        }
+
+        header("Location: /search.html");
+        exit();
+    }
+
+    /**
+    * @protected
+    */
+    public function _secure()
+    {
+        $user = $this->getUser();
+        if (!$user)
+        {
+            header("Location: /login.html");
+            exit();
+        }
     }
 }
