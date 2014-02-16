@@ -3,34 +3,36 @@
     Twoje konto zostało zaktualizowane!
 {/if}
 {else}
-    <form method="post">
+    <form method="post" enctype="multipart/form-data">
         <ol>
             <li>
                 <label>
                     Imię:
                     <input type="text" name="first" value="{echo $user->first}" />
-		    {echo Shared\Markup::errors($errors, "first")}
                 </label>
             </li>
             <li>
                 <label>
                     Nazwisko:
                     <input type="text" name="last" value="{echo $user->last}" />
-		    {echo Shared\Markup::errors($errors, "last")}
                 </label>
-            </li>
+            </li>    
             <li>
                 <label>
                     E-mail:
                     <input type="text" name="email" value="{echo $user->email}" />
-		    {echo Shared\Markup::errors($errors, "email")}
                 </label>
             </li>
             <li>
                 <label>
                     Hasło:
                     <input type="password" name="password" value="{echo $user->password}" />
-		    {echo Shared\Markup::errors($errors, "password")}
+                </label>
+            </li>
+            <li>
+                <label>
+                    Zdjęcie:
+                    <input type="file" name="photo" />
                 </label>
             </li>
             <li>

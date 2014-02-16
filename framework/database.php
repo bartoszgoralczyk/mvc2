@@ -27,6 +27,8 @@ namespace Framework
         
         public function initialize()
         {
+            Events::fire("framework.database.initialize.before", array($this->type, $this->options));
+        
             if (!$this->type)
             {
                 $configuration = Registry::get("configuration");
@@ -49,6 +51,8 @@ namespace Framework
             {
                 throw new Exception\Argument("Nieprawidłowy typ");
             }
+            
+            Events::fire("framework.database.initialize.after", array($this->type, $this->options));
             
             switch ($this->type)
             {

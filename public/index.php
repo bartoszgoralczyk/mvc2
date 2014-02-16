@@ -1,5 +1,5 @@
 <?php
-$st = microtime(true);
+
 // stałe
 
 define("DEBUG", TRUE);
@@ -7,10 +7,37 @@ define("APP_PATH", dirname(__DIR__));
 
 try
 {
+    // imagine autoloader
+
+    spl_autoload_register(function($class)
+    {
+        $path = lcfirst(str_replace("\\", DIRECTORY_SEPARATOR, $class));
+        $file = APP_PATH."/application/libraries/{$path}.php";
+
+        if (file_exists($file))
+        {
+            require_once $file;
+            return true;
+        }
+    });
+
     // rdzeń
 
     require("../framework/core.php");
     Framework\Core::initialize();
+
+    // plugins
+
+    $path = APP_PATH . "/application/plugins";
+    $iterator = new DirectoryIterator($path);
+
+    foreach ($iterator as $item)
+    {
+        if (!$item->isDot() && $item->isDir())
+        {
+            include($path . "/" . $item->getFilename() . "/initialize.php");
+        }
+    }
 
     // konfiguracja
 
@@ -57,7 +84,6 @@ try
     unset($cache);
     unset($session);
     unset($router);
-    echo "time: " . round(microtime(true)-$st,2);
 }
 catch (Exception $e)
 {

@@ -26,10 +26,14 @@ namespace Framework
         
         public function initialize()
         {
+            Events::fire("framework.configuration.initialize.before", array($this->type, $this->options));
+            
             if (!$this->type)
             {
                 throw new Exception\Argument("Nieprawidłowy typ");
             }
+            
+            Events::fire("framework.configuration.initialize.after", array($this->type, $this->options));
             
             switch ($this->type)
             {

@@ -1,0 +1,17 @@
+[2014-02-16 14:45:59]framework.configuration.initialize.before: ini
+[2014-02-16 14:45:59]framework.configuration.initialize.after: ini
+[2014-02-16 14:45:59]framework.database.initialize.before: 
+[2014-02-16 14:45:59]framework.database.initialize.after: mysql
+[2014-02-16 14:45:59]framework.cache.initialize.before: 
+[2014-02-16 14:45:59]framework.cache.initialize.after: memcached
+[2014-02-16 14:45:59]framework.session.initialize.before: 
+[2014-02-16 14:45:59]framework.session.initialize.after: server
+[2014-02-16 14:45:59]framework.router.dispatch.before: home/index
+[2014-02-16 14:45:59]framework.router.dispatch.after: home/index, home, index
+[2014-02-16 14:45:59]framework.controller.construct.before: Home
+[2014-02-16 14:45:59]framework.view.construct.before: C:\wamp\www\mvc2/application/views/layouts/standard.html
+[2014-02-16 14:45:59]framework.view.construct.after: C:\wamp\www\mvc2/application/views/layouts/standard.html
+[2014-02-16 14:45:59]framework.view.construct.before: C:\wamp\www\mvc2/application/views/home/index.html
+[2014-02-16 14:45:59]framework.view.construct.after: C:\wamp\www\mvc2/application/views/home/index.html
+[2014-02-16 14:45:59]framework.controller.construct.after: Home
+Średni: 0.017482, najdłuższy: 0.066011, najkrótszy: 0.00029300000000004, Suma: 0.28727

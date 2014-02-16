@@ -28,9 +28,13 @@ namespace Framework
         {
             parent::__construct($options);
             
+            Events::fire("framework.view.construct.before", array($this->file));
+            
             $this->_template = new Template(array(
                 "implementation" => new Template\Implementation\Extended()
             ));
+            
+            Events::fire("framework.view.construct.after", array($this->file, $this->template));
         }
         
         public function _getExceptionForImplementation($method)
@@ -40,6 +44,8 @@ namespace Framework
         
         public function render()
         {
+            Events::fire("framework.view.render.before", array($this->file));
+            
             if (!file_exists($this->file))
             {
                 return "";

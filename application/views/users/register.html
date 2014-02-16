@@ -3,7 +3,7 @@
     Twoje konto zostało założone!
 {/if}
 {else}
-    <form method="post">
+    <form method="post" enctype="multipart/form-data">
         <ol>
             <li>
                 <label>
@@ -18,7 +18,7 @@
                     <input type="text" name="last" />
                     {echo Shared\Markup::errors($errors, "last")}
                 </label>
-            </li>
+            </li>    
             <li>
                 <label>
                     E-mail:
@@ -31,6 +31,12 @@
                     Hasło:
                     <input type="password" name="password" />
                     {echo Shared\Markup::errors($errors, "password")}
+                </label>
+            </li>
+            <li>
+                <label>
+                    Zdjęcie:
+                    <input type="file" name="photo" />
                 </label>
             </li>
             <li>

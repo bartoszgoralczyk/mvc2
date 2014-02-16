@@ -78,4 +78,13 @@ class User extends Shared\Model
 
         return $user->isFriend($friend);
     }
+
+    public function getFile()
+    {
+        return File::first(array(
+            "user = ?" => $this->id,
+            "live = ?" => true,
+            "deleted = ?" => false
+        ), array("*"), "id", "DESC");
+    }
 }

@@ -1,0 +1,34 @@
+[2014-02-04 21:40:00]framework.configuration.initialize.before: ini
+[2014-02-04 21:40:00]framework.configuration.initialize.after: ini
+[2014-02-04 21:40:00]framework.database.initialize.before: 
+[2014-02-04 21:40:00]framework.database.initialize.after: mysql
+[2014-02-04 21:40:00]framework.cache.initialize.before: 
+[2014-02-04 21:40:00]framework.cache.initialize.after: memcached
+[2014-02-04 21:40:00]framework.session.initialize.before: 
+[2014-02-04 21:40:00]framework.session.initialize.after: server
+[2014-02-04 21:40:00]framework.router.dispatch.before: home
+[2014-02-04 21:40:00]framework.router.dispatch.after: home, home, index
+[2014-02-04 21:40:00]framework.controller.construct.before: Home
+[2014-02-04 21:40:00]framework.view.construct.before: C:\wamp\www\mvc2/application/views/layouts/standard.html
+[2014-02-04 21:40:00]framework.view.construct.after: C:\wamp\www\mvc2/application/views/layouts/standard.html
+[2014-02-04 21:40:00]framework.view.construct.before: C:\wamp\www\mvc2/application/views/home/index.html
+[2014-02-04 21:40:00]framework.view.construct.after: C:\wamp\www\mvc2/application/views/home/index.html
+[2014-02-04 21:40:00]framework.controller.construct.after: Home
+Średni: 0.0057384375, najdłuższy: 0.022713, najkrótszy: 0.00027199999999999, Suma: 0.183925
+[2014-02-04 21:40:25]framework.configuration.initialize.before: ini
+[2014-02-04 21:40:25]framework.configuration.initialize.after: ini
+[2014-02-04 21:40:25]framework.database.initialize.before: 
+[2014-02-04 21:40:25]framework.database.initialize.after: mysql
+[2014-02-04 21:40:25]framework.cache.initialize.before: 
+[2014-02-04 21:40:25]framework.cache.initialize.after: memcached
+[2014-02-04 21:40:25]framework.session.initialize.before: 
+[2014-02-04 21:40:25]framework.session.initialize.after: server
+[2014-02-04 21:40:25]framework.router.dispatch.before: home
+[2014-02-04 21:40:25]framework.router.dispatch.after: home, home, index
+[2014-02-04 21:40:25]framework.controller.construct.before: Home
+[2014-02-04 21:40:25]framework.view.construct.before: C:\wamp\www\mvc2/application/views/layouts/standard.html
+[2014-02-04 21:40:25]framework.view.construct.after: C:\wamp\www\mvc2/application/views/layouts/standard.html
+[2014-02-04 21:40:25]framework.view.construct.before: C:\wamp\www\mvc2/application/views/home/index.html
+[2014-02-04 21:40:25]framework.view.construct.after: C:\wamp\www\mvc2/application/views/home/index.html
+[2014-02-04 21:40:25]framework.controller.construct.after: Home
+Średni: 0.004353625, najdłuższy: 0.016654, najkrótszy: 0.00027199999999999, Suma: 0.135593
